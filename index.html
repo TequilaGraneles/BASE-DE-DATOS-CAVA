@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Información de la Barrica</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        .data-box { border: 1px solid #ccc; padding: 15px; border-radius: 8px; max-width: 400px; }
+        .label { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="info" class="data-box">
+        <p>Cargando información...</p>
+    </div>
+
+    <script>
+        const barricas = [
+            { id: 1, barrica: "1", lote: "LOT TE260618B-PSA", folio: "158/462", uso: "8", entrada: "N/A", salida: "NUEVA 1ER LOTE" },
+            { id: 2, barrica: "2", lote: "LOT TE260618B-PSA", folio: "157/462", uso: "8", entrada: "N/A", salida: "NUEVA 1ER LOTE" },
+            // Agrega aquí todas tus barricas
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = parseInt(urlParams.get('id'));
+        const barrica = barricas.find(p => p.id === id);
+
+        const infoDiv = document.getElementById('info');
+        if (barrica) {
+            infoDiv.innerHTML = `
+                <p><span class="label">Barrica:</span> ${barrica.barrica}</p>
+                <p><span class="label">Lote:</span> ${barrica.lote}</p>
+                <p><span class="label">Folio:</span> ${barrica.folio}</p>
+                <p><span class="label">Uso:</span> ${barrica.uso}</p>
+                <p><span class="label">Entrada:</span> ${barrica.entrada}</p>
+                <p><span class="label">Salida estimada:</span> ${barrica.salida}</p>
+            `;
+        } else {
+            infoDiv.innerHTML = "<p>Barrica no encontrada.</p>";
+        }
+    </script>
+</body>
+</html>
