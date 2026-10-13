@@ -5,7 +5,7 @@
     <title>Información de la Barrica</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
-        .data-box { border: 1px solid #ccc; padding: 15px; border-radius: 8px; max-width: 400px; }
+        .data-box { border: 1px solid #ccc; padding: 15px; border-radius: 8px; max-width: 400px; background: #f9f9f9; }
         .label { font-weight: bold; }
     </style>
 </head>
@@ -15,28 +15,30 @@
     </div>
 
     <script>
-        const barricas = [
-            { id: 1, barrica: "1", lote: "LOT TE260618B-PSA", folio: "158/462", uso: "8", entrada: "N/A", salida: "NUEVA 1ER LOTE" },
-            { id: 2, barrica: "2", lote: "LOT TE260618B-PSA", folio: "157/462", uso: "8", entrada: "N/A", salida: "NUEVA 1ER LOTE" },
-            // Agrega aquí todas tus barricas
-        ];
-
         const urlParams = new URLSearchParams(window.location.search);
-        const id = parseInt(urlParams.get('id'));
-        const barrica = barricas.find(p => p.id === id);
+        
+        // Capturamos los datos directamente desde la URL del QR
+        const barrica = urlParams.get('barrica');
+        const lote = urlParams.get('lote');
+        const folio = urlParams.get('folio');
+        const uso = urlParams.get('uso');
+        const entrada = urlParams.get('entrada');
+        const salida = urlParams.get('salida');
 
         const infoDiv = document.getElementById('info');
+
         if (barrica) {
             infoDiv.innerHTML = `
-                <p><span class="label">Barrica:</span> ${barrica.barrica}</p>
-                <p><span class="label">Lote:</span> ${barrica.lote}</p>
-                <p><span class="label">Folio:</span> ${barrica.folio}</p>
-                <p><span class="label">Uso:</span> ${barrica.uso}</p>
-                <p><span class="label">Entrada:</span> ${barrica.entrada}</p>
-                <p><span class="label">Salida estimada:</span> ${barrica.salida}</p>
+                <h3>Detalles de la Barrica</h3>
+                <p><span class="label">Barrica:</span> ${barrica}</p>
+                <p><span class="label">Lote:</span> ${lote}</p>
+                <p><span class="label">Folio:</span> ${folio}</p>
+                <p><span class="label">Uso:</span> ${uso}</p>
+                <p><span class="label">Entrada:</span> ${entrada}</p>
+                <p><span class="label">Salida estimada:</span> ${salida}</p>
             `;
         } else {
-            infoDiv.innerHTML = "<p>Barrica no encontrada.</p>";
+            infoDiv.innerHTML = "<p>No se encontraron datos de la barrica.</p>";
         }
     </script>
 </body>
