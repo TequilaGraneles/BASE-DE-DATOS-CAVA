@@ -20,9 +20,9 @@
         // Capturamos los datos directamente desde la URL del QR
         const barrica = urlParams.get('barrica');
         const lote = urlParams.get('lote');
-        const folio = urlParams.get('folio');
-        const uso = urlParams.get('uso');
-        const entrada = urlParams.get('entrada');
+        const folio = urlParams.get('fajilla');
+        const posturas = urlParams.get('posturas');
+        const embarricado = urlParams.get('embarricado');
         const salida = urlParams.get('salida');
 
         const infoDiv = document.getElementById('info');
@@ -32,9 +32,9 @@
                 <h3>Detalles de la Barrica</h3>
                 <p><span class="label">Barrica:</span> ${barrica}</p>
                 <p><span class="label">Lote:</span> ${lote}</p>
-                <p><span class="label">Folio:</span> ${folio}</p>
-                <p><span class="label">Uso:</span> ${uso}</p>
-                <p><span class="label">Entrada:</span> ${entrada}</p>
+                <p><span class="label">Fajilla:</span> ${fajilla}</p>
+                <p><span class="label">Posturas:</span> ${posturas}</p>
+                <p><span class="label">Embarricado:</span> ${embarricado}</p>
                 <p><span class="label">Salida estimada:</span> ${salida}</p>
             `;
         } else {
