@@ -23,7 +23,7 @@
         const fajilla = urlParams.get('fajilla');
         const posturas = urlParams.get('posturas');
         const embarricado = urlParams.get('embarricado');
-        const salida = urlParams.get('salida');
+        const categoria = urlParams.get('categoria');
 
         const infoDiv = document.getElementById('info');
 
@@ -35,7 +35,7 @@
                 <p><span class="label">Fajilla:</span> ${fajilla}</p>
                 <p><span class="label">Posturas:</span> ${posturas}</p>
                 <p><span class="label">Embarricado:</span> ${embarricado}</p>
-                <p><span class="label">Salida estimada:</span> ${salida}</p>
+                <p><span class="label">Categoria:</span> ${categoria}</p>
             `;
         } else {
             infoDiv.innerHTML = "<p>No se encontraron datos de la barrica.</p>";
